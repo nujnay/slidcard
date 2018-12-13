@@ -11,13 +11,14 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private int lastX, lastY;
-
+    private ConstraintLayout cl_main;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView behavior = findViewById(R.id.behavior);
+        cl_main = findViewById(R.id.cl_main);
         behavior.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                         lastY = (int) event.getRawY();
                         break;
                 }
+                cl_main.invalidate();
+                return true;
             }
         });
     }
