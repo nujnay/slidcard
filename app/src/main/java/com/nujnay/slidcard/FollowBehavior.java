@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class FollowBehavior extends CoordinatorLayout.Behavior<TextView> {
+public class FollowBehavior extends CoordinatorLayout.Behavior<TestView> {
 
     /**
      * 构造方法
@@ -17,12 +17,12 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<TextView> {
     }
 
     @Override
-    public boolean layoutDependsOn(CoordinatorLayout parent, TextView child, View dependency) {
-        return dependency instanceof TextView;
+    public boolean layoutDependsOn(CoordinatorLayout parent, TestView child, View dependency) {
+        return dependency instanceof TestView;
     }
 
     @Override
-    public boolean onDependentViewChanged(CoordinatorLayout parent, TextView child, View dependency) {
+    public boolean onDependentViewChanged(CoordinatorLayout parent, TestView child, View dependency) {
         child.setX(dependency.getX());
         child.setY(dependency.getY() + 100);
         return true;

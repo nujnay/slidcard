@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.nujnay.slidcard.TestView1
+    <com.nujnay.slidcard.TestView
         android:id="@+id/observer"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -14,10 +14,10 @@
         android:gravity="center"
         android:text="跟随者"
         android:textColor="#fff"
-        app:layout_behavior=".FollowBehavior"
+
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <com.nujnay.slidcard.TestView1
+    <com.nujnay.slidcard.TestView
         android:id="@+id/behavior"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -25,6 +25,7 @@
         android:gravity="center"
         android:text="行动者"
         android:textColor="#fff"
+        app:layout_behavior=".FollowBehavior"
         app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
