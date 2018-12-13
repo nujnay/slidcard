@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
-    <com.nujnay.slidcard.TestView
-        android:id="@+id/observer"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="跟随者"
-        android:textColor="#fff" />
+    <android.support.design.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/cl_main"
+        android:layout_width="match_parent"
+        android:layout_height="186dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        tools:context=".MainActivity2">
 
-    <com.nujnay.slidcard.TestView
-        android:id="@+id/behavior"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:text="行动者"
-        android:textColor="#fff" />
+        <com.nujnay.slidcard.TestView
+            android:id="@+id/observer"
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:layout_gravity="center|top"
+            android:layout_marginBottom="100dp"
+            android:background="#55D81B60"
+            android:gravity="center"
+            android:textColor="#fff" />
 
-</android.support.design.widget.CoordinatorLayout>
+        <com.nujnay.slidcard.TestView
+            android:id="@+id/behavior"
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:layout_gravity="center|bottom"
+            android:background="#77008577"
+            android:gravity="center"
+            android:textColor="#fff" />
+    </android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

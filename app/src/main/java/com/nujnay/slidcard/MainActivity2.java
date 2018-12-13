@@ -27,7 +27,13 @@ public class MainActivity2 extends AppCompatActivity {
         CoordinatorLayout.LayoutParams params =
                 (CoordinatorLayout.LayoutParams) observer.getLayoutParams();
         params.setBehavior(followBehavior);
+
+
         behavior = findViewById(R.id.behavior);
+        CoordinatorLayout.LayoutParams params2 =
+                (CoordinatorLayout.LayoutParams) observer.getLayoutParams();
+        params2.setBehavior(followBehavior);
+
 
     }
 

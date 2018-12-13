@@ -4,13 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 
-public class TestView extends android.support.v7.widget.AppCompatTextView {
+public class TestView extends FrameLayout {
     //定义两个变量用于存储按下view时所处的坐标
-    int lastX = 0;
     int lastY = 0;
+    int maxY = 200;
 
     public TestView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -25,15 +26,14 @@ public class TestView extends android.support.v7.widget.AppCompatTextView {
         switch (event.getAction()) {
             //触摸事件中绕不开的第一步，必然执行，将按下时的触摸点坐标赋值给 lastX 和 last Y
             case MotionEvent.ACTION_DOWN:
-                lastX = x;
                 lastY = y;
                 break;
             //触摸事件的第二步，这时候的x,y已经随着滑动操作产生了变化，用变化后的坐标减去首次触摸时的坐标得到 相对的偏移量
             case MotionEvent.ACTION_MOVE:
-                int offsetX = x - lastX;
                 int offsetY = y - lastY;
                 //使用 layout 进行重新定位
-                layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
+
+                layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
                 break;
         }
         return true;
