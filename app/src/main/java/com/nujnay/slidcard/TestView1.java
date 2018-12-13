@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Scroller;
 import android.widget.TextView;
 
-public class TestView1 extends TextView {
+public class TestView1 extends android.support.v7.widget.AppCompatTextView {
     //定义两个变量用于存储按下view时所处的坐标
     int lastX = 0;
     int lastY = 0;
