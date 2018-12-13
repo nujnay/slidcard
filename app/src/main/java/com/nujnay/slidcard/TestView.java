@@ -37,9 +37,17 @@ public class TestView extends FrameLayout {
                 Log.d("getTopgetTop", getTop() + "");
                 if (getTop() + offsetY <= 0) {
                     layout(getLeft(), 0, getRight(), ScreenTools.dp2px(context, 145));
+                } else if (getBottom() + offsetY >= ScreenTools.dp2px(context, 186)) {
+                    layout(getLeft(), ScreenTools.dp2px(context, 41), getRight(), ScreenTools.dp2px(context, 186));
                 } else {
-                    layout(getLeft(), getTop() + offsetY, getRight(),getBottom() + offsetY);
+                    layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
                 }
+
+//                if (getBottom() + offsetY >= ScreenTools.dp2px(context, 186)) {
+//                    layout(getLeft(), ScreenTools.dp2px(context, 41), getRight(), ScreenTools.dp2px(context, 186));
+//                } else {
+//                    layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
+//                }
                 break;
         }
         return true;
