@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <!--<com.nujnay.slidcard.TestView1-->
-        <!--android:id="@+id/observer"-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:background="@color/colorAccent"-->
-        <!--android:gravity="center"-->
-        <!--android:text="跟随者"-->
-        <!--android:textColor="#fff"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent" />-->
+    <com.nujnay.slidcard.TestView1
+        android:id="@+id/observer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="跟随者"
+        android:textColor="#fff"
+        app:layout_behavior=".FollowBehavior"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <com.nujnay.slidcard.TestView1
         android:id="@+id/behavior"
