@@ -12,10 +12,12 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<TestView> {
 
     public FollowBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
+        Log.d("onDependcdd", "222");
     }
 
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, TestView child, View dependency) {
+        Log.d("onDependcdd", "333");
         return dependency instanceof TestView;
     }
 
