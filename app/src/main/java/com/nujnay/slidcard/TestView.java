@@ -36,7 +36,7 @@ public class TestView extends FrameLayout {
                 //使用 layout 进行重新定位
                 Log.d("getTopgetTop", getTop() + "");
                 if (getTop() + offsetY <= 0) {
-                    layout(getLeft(), 0, getRight(), ScreenTools.dp2px(context, 186));
+                    layout(getLeft(), 0, getRight(), ScreenTools.dp2px(context, 145));
                 } else {
                     layout(getLeft(), getTop() + offsetY, getRight(),getBottom() + offsetY);
                 }
