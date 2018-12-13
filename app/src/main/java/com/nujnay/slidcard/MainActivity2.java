@@ -16,6 +16,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        //跟随者 注册行动
         TestView observer = findViewById(R.id.observer);
         FollowBehavior followBehavior = new FollowBehavior();
         CoordinatorLayout.LayoutParams params =

@@ -15,18 +15,15 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<View> {
     }
     public FollowBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Log.d("onDependcdd", "222");
     }
 
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency) {
-        Log.d("onDependcdd", "333");
         return dependency instanceof TestView;
     }
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
-        Log.d("onDependcdd", "1111111");
         child.setX(dependency.getX());
         child.setY(dependency.getY() + 100);
         return true;
