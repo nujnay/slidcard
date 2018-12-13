@@ -5,8 +5,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
+import android.widget.TextView;
 
-public class TestView1 extends View {
+public class TestView1 extends TextView {
     //定义两个变量用于存储按下view时所处的坐标
     int lastX = 0;
     int lastY = 0;
@@ -42,16 +43,16 @@ public class TestView1 extends View {
             //触摸事件的第三步，必然执行，手指抬起时候触发，这里会将移动过的view还原到原来的位置，并且有过度效果不是突然移动
             case MotionEvent.ACTION_UP:
                 //因为下面要使用父视图的引用来得到偏移量 所以要获得一个父视图引用
-                View viewGroup = (View) getParent();
+//                View viewGroup = (View) getParent();
 
                 //调用 startScroll 方法，参数为 起始X坐标，起始Y坐标，目的X坐标，目的Y坐标，过度动画持续时间
                 //这里使用了 viewGroup.getScrollX() 和 viewGroup.getScrollY() 作为起始坐标，ScrollY 和 ScrollX 记录了使用 scrollBy 进行偏移的量
                 //所以使用他们就等于是使用了现在的坐标作为起始坐标，目的坐标为他们的负数，就是偏移量为0的位置，也是view在没有移动之前的位置
-                scroller.startScroll(viewGroup.getScrollX(),
-                        viewGroup.getScrollY(),
-                        -viewGroup.getScrollX(),
-                        -viewGroup.getScrollY(),
-                        800);
+//                scroller.startScroll(viewGroup.getScrollX(),
+//                        viewGroup.getScrollY(),
+//                        -viewGroup.getScrollX(),
+//                        -viewGroup.getScrollY(),
+//                        800);
 
                 //刷新view，这里很重要，如果不执行，下面的 computeScroll 方法就不会执行 computeScroll 方法是由 onDraw 方法调用的，而刷新 View 会调用 onDraw。
                 invalidate();
