@@ -18,7 +18,7 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<TextView> {
 
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, TextView child, View dependency) {
-        return dependency instanceof Button;
+        return dependency instanceof TextView;
     }
 
     @Override
