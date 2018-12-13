@@ -24,8 +24,7 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<View> {
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
-        child.setX(dependency.getX());
-        child.setY(dependency.getY() + 100);
+
         return true;
     }
 }
