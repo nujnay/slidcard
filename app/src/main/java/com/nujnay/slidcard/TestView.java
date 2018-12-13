@@ -2,6 +2,7 @@ package com.nujnay.slidcard;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -9,12 +10,13 @@ import android.widget.Scroller;
 import android.widget.TextView;
 
 public class TestView extends FrameLayout {
-    //定义两个变量用于存储按下view时所处的坐标
+    Context context;
     int lastY = 0;
     int maxY = 200;
 
     public TestView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
     }
 
     @Override
@@ -32,8 +34,12 @@ public class TestView extends FrameLayout {
             case MotionEvent.ACTION_MOVE:
                 int offsetY = y - lastY;
                 //使用 layout 进行重新定位
-
-                layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
+                Log.d("getTopgetTop", getTop() + "");
+                if (getTop() + offsetY <= 0) {
+                    layout(getLeft(), 0, getRight(), ScreenTools.dp2px(context, 186));
+                } else {
+                    layout(getLeft(), getTop() + offsetY, getRight(),getBottom() + offsetY);
+                }
                 break;
         }
         return true;
