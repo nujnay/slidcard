@@ -11,20 +11,21 @@
         android:id="@+id/observer"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
         android:background="@color/colorAccent"
         android:gravity="center"
         android:text="跟随者"
-        android:textColor="#fff"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:textColor="#fff" />
 
     <com.nujnay.slidcard.TestView
         android:id="@+id/behavior"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="行动者"
-        android:textColor="#fff"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textColor="#fff" />
 
 </android.support.design.widget.CoordinatorLayout>
