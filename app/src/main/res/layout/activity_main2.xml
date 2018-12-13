@@ -14,7 +14,6 @@
         android:gravity="center"
         android:text="跟随者"
         android:textColor="#fff"
-
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <com.nujnay.slidcard.TestView
