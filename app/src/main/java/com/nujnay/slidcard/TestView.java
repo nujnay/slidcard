@@ -34,7 +34,6 @@ public class TestView extends FrameLayout {
             case MotionEvent.ACTION_MOVE:
                 int offsetY = y - lastY;
                 //使用 layout 进行重新定位
-                Log.d("getTopgetTop", getTop() + "");
                 if (getTop() + offsetY <= 0) {
                     layout(getLeft(), 0, getRight(), ScreenTools.dp2px(context, 145));
                 } else if (getBottom() + offsetY >= ScreenTools.dp2px(context, 186)) {
@@ -42,12 +41,6 @@ public class TestView extends FrameLayout {
                 } else {
                     layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
                 }
-
-//                if (getBottom() + offsetY >= ScreenTools.dp2px(context, 186)) {
-//                    layout(getLeft(), ScreenTools.dp2px(context, 41), getRight(), ScreenTools.dp2px(context, 186));
-//                } else {
-//                    layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
-//                }
                 break;
         }
         return true;
