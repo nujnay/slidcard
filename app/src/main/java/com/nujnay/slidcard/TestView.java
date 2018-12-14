@@ -4,23 +4,26 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 public class TestView extends FrameLayout {
-    Context context;
-    int lastY = 0;
+    private Context context;
+    private int lastY = 0;
 
-    int leftTop_Y_Max = ScreenTools.dp2px(Myapplication.myapplication, 32);
-    int RightBottom_Y_Min = ScreenTools.dp2px(Myapplication.myapplication, 134);
-    int yChangeTotalLength = ScreenTools.dp2px(Myapplication.myapplication, 20);
-    int yLengthMix = ScreenTools.dp2px(Myapplication.myapplication, 134);
-    int RightBottom_Y_Max = ScreenTools.dp2px(Myapplication.myapplication, 186);
+    private int leftTop_Y_Max = ScreenTools.dp2px(Myapplication.myapplication, 32);
+    private int RightBottom_Y_Min = ScreenTools.dp2px(Myapplication.myapplication, 134);
+    private int yChangeTotalLength = ScreenTools.dp2px(Myapplication.myapplication, 20);
+    private int yLengthMix = ScreenTools.dp2px(Myapplication.myapplication, 134);
+    private int yLengthMax = ScreenTools.dp2px(Myapplication.myapplication, 154);
+    private int RightBottom_Y_Max = ScreenTools.dp2px(Myapplication.myapplication, 186);
 
-    int leftTop_X_Max = ScreenTools.dp2px(Myapplication.myapplication, 23);
-    int xChangeTotalLength = ScreenTools.dp2px(Myapplication.myapplication, 23);
+    private int leftTop_X_Max = ScreenTools.dp2px(Myapplication.myapplication, 23);
+    private int xChangeTotalLength = ScreenTools.dp2px(Myapplication.myapplication, 23);
 
-    int parentWith = ScreenTools.getScreenWidth() - ScreenTools.dp2px(Myapplication.myapplication, 13) * 2;
+    private int parentWith = ScreenTools.getScreenWidth() - ScreenTools.dp2px(Myapplication.myapplication, 13) * 2;
 
     public TestView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -57,6 +60,13 @@ public class TestView extends FrameLayout {
                     double currentChangeLengX = (double) xChangeTotalLength * (1d - currentChangeRate);
 
                     layout((int) currentChangeLengX, getTop() + offsetY, (int) (parentWith - currentChangeLengX), (int) rightBottom_Y_Current);
+
+                    for (int i = 0; i < getChildCount(); i++) {
+                        View view = getChildAt(i);
+                        view.setScaleX((float) currentLengthY / (float) yLengthMax);
+                        view.setScaleY((float) currentLengthY / (float) yLengthMax);
+                        view.setAlpha((float) (0.2d + (0.8d * currentChangeRate)));
+                    }
                 }
                 break;
         }

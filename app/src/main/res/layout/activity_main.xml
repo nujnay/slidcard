@@ -23,17 +23,33 @@
             android:layout_gravity="center|top"
             android:layout_marginLeft="23dp"
             android:layout_marginRight="23dp"
-            android:background="#55D81B60"
             android:gravity="center"
-            android:textColor="#fff" />
+            android:textColor="#fff">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:src="@drawable/main_loan_background" />
+
+        </com.nujnay.slidcard.TestView>
 
         <com.nujnay.slidcard.TestView
             android:id="@+id/behavior"
             android:layout_width="match_parent"
             android:layout_height="154dp"
             android:layout_gravity="center|bottom"
-            android:background="#77008577"
             android:gravity="center"
-            android:textColor="#fff" />
+            android:textColor="#fff">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:src="@drawable/main_loan_background" />
+
+        </com.nujnay.slidcard.TestView>
     </android.support.design.widget.CoordinatorLayout>
 </FrameLayout>

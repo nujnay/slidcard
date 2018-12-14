@@ -13,6 +13,7 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<View> {
     public FollowBehavior() {
 
     }
+
     public FollowBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -24,7 +25,16 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<View> {
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
+        float dependencyX = dependency.getX();
+        float dependencyY = dependency.getY();
+        float dependencyWidth = dependency.getWidth();
+        float dependencyHeight = dependency.getHeight();
 
+        Log.d("dependencyXdd", dependencyX + "||"
+                + dependencyY + "||"
+                + dependencyWidth + "||"
+                + dependencyHeight + "||"
+        );
         return true;
     }
 }
