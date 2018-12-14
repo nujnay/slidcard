@@ -1,17 +1,13 @@
 package com.nujnay.slidcard;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 
 
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     CoordinatorLayout cl_main;
     TestView observer;
     TestView behavior;
@@ -19,7 +15,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
         //跟随者 注册行动
         cl_main = findViewById(R.id.cl_main);
         observer = findViewById(R.id.observer);

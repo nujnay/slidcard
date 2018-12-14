@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    tools:context=".MainActivity">
 
     <android.support.design.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/cl_main"
@@ -14,7 +14,7 @@
         android:layout_marginLeft="13dp"
         android:layout_marginTop="106dp"
         android:layout_marginRight="13dp"
-        tools:context=".MainActivity2">
+        tools:context=".MainActivity">
 
         <com.nujnay.slidcard.TestView
             android:id="@+id/observer"
