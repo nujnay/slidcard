@@ -23,7 +23,6 @@
             android:layout_gravity="center|top"
             android:layout_marginLeft="23dp"
             android:layout_marginRight="23dp"
-            android:background="@color/colorAccent"
             android:gravity="center"
             android:textColor="#fff">
 

@@ -5,6 +5,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 
 public class FollowBehavior extends CoordinatorLayout.Behavior<View> {
     private int leftTop_Y_Max = ScreenTools.dp2px(Myapplication.myapplication, 32);
@@ -37,15 +38,24 @@ public class FollowBehavior extends CoordinatorLayout.Behavior<View> {
         float childLeftTopY = leftTop_Y_Max - dependencyY;
         float childLeftTopX = leftTop_X_Max - dependencyX;
 
-        float childRightBottomY = yLengthMin + ((leftTop_Y_Max - (dependencyY - dependencyHeight))) + (yChangeTotalLength - (dependencyHeight - dependencyHeight));
+        float childRightBottomYBuffer = (((float) leftTop_Y_Max - dependencyY)) + ((float) yLengthMax - dependencyHeight);
+        float childRightBottomY = (float) yLengthMin + childRightBottomYBuffer;
         float childRightBottomX = parentWith - (leftTop_X_Max - dependencyX);
 
         child.layout((int) childLeftTopX, (int) childLeftTopY, (int) childRightBottomX, (int) childRightBottomY);
-
+        double currentChangeRate = childLeftTopX / leftTop_X_Max;
+        double iamgeviewScaleRate = (childRightBottomY - childLeftTopY) / (float) yLengthMin;
+        for (int i = 0; i < ((FrameLayout) child).getChildCount(); i++) {
+            View view = ((FrameLayout) child).getChildAt(i);
+            view.setScaleX((float) iamgeviewScaleRate);
+            view.setScaleY((float) iamgeviewScaleRate);
+            view.setAlpha((float) (0.2d + (0.8d * (1 - currentChangeRate))));
+        }
         Log.d("dependencyXdd", dependencyX + "||"
                 + dependencyY + "||"
                 + dependencyWidth + "||"
                 + dependencyHeight + "||"
+                + currentChangeRate + "||"
         );
         return true;
     }
