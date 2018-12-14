@@ -4,21 +4,23 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.Scroller;
-import android.widget.TextView;
 
 public class TestView extends FrameLayout {
     Context context;
     int lastY = 0;
 
-    int leftTopMax = ScreenTools.dp2px(Myapplication.myapplication, 32);
-    int RightBottomMin = ScreenTools.dp2px(Myapplication.myapplication, 134);
+    int leftTop_Y_Max = ScreenTools.dp2px(Myapplication.myapplication, 32);
+    int RightBottom_Y_Min = ScreenTools.dp2px(Myapplication.myapplication, 134);
     int yChangeTotalLength = ScreenTools.dp2px(Myapplication.myapplication, 20);
     int yLengthMix = ScreenTools.dp2px(Myapplication.myapplication, 134);
+    int RightBottom_Y_Max = ScreenTools.dp2px(Myapplication.myapplication, 186);
 
-    int RightBottomMax = ScreenTools.dp2px(Myapplication.myapplication, 186);
+    int leftTop_X_Max = ScreenTools.dp2px(Myapplication.myapplication, 23);
+    int xChangeTotalLength = ScreenTools.dp2px(Myapplication.myapplication, 23);
+
+    int parentWith = ScreenTools.getScreenWidth() - ScreenTools.dp2px(Myapplication.myapplication, 13) * 2;
 
     public TestView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -40,17 +42,21 @@ public class TestView extends FrameLayout {
             case MotionEvent.ACTION_MOVE:
                 int offsetY = y - lastY;
                 //使用 layout 进行重新定位
-                if (getTop() + offsetY <= 0) {
-                    layout(getLeft(), 0, getRight(), RightBottomMin);
-                } else if (getBottom() + offsetY >= RightBottomMax) {
-                    layout(getLeft(), leftTopMax, getRight(), RightBottomMax);
+                if (getTop() + offsetY <= 0) {//最上
+                    layout(leftTop_X_Max, 0, parentWith - xChangeTotalLength, RightBottom_Y_Min);
+                } else if (getBottom() + offsetY >= RightBottom_Y_Max) {//最下
+                    layout(0, leftTop_Y_Max, parentWith, RightBottom_Y_Max);
                 } else {
                     int leftTopCurrent = getTop() + offsetY;
-                    double currentChangeRate = (double) leftTopCurrent / (double) leftTopMax;
+                    double currentChangeRate = (double) leftTopCurrent / (double) leftTop_Y_Max;
+
                     double currentChangeLengthY = currentChangeRate * yChangeTotalLength;
                     double currentLengthY = currentChangeLengthY + yLengthMix;
-                    double rightBottomcurrent = currentLengthY + leftTopCurrent;
-                    layout(getLeft(), getTop() + offsetY, getRight(), (int) rightBottomcurrent);
+                    double rightBottom_Y_Current = currentLengthY + leftTopCurrent;
+
+                    double currentChangeLengX = (double) xChangeTotalLength * (1d - currentChangeRate);
+
+                    layout((int) currentChangeLengX, getTop() + offsetY, (int) (parentWith - currentChangeLengX), (int) rightBottom_Y_Current);
                 }
                 break;
         }
