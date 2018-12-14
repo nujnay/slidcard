@@ -12,7 +12,13 @@ import android.widget.TextView;
 public class TestView extends FrameLayout {
     Context context;
     int lastY = 0;
-    int maxY = 200;
+
+    int leftTopMax = ScreenTools.dp2px(Myapplication.myapplication, 32);
+    int RightBottomMin = ScreenTools.dp2px(Myapplication.myapplication, 134);
+    int yChangeTotalLength = ScreenTools.dp2px(Myapplication.myapplication, 20);
+    int yLengthMix = ScreenTools.dp2px(Myapplication.myapplication, 134);
+
+    int RightBottomMax = ScreenTools.dp2px(Myapplication.myapplication, 186);
 
     public TestView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -35,11 +41,16 @@ public class TestView extends FrameLayout {
                 int offsetY = y - lastY;
                 //使用 layout 进行重新定位
                 if (getTop() + offsetY <= 0) {
-                    layout(getLeft(), 0, getRight(), ScreenTools.dp2px(context, 145));
-                } else if (getBottom() + offsetY >= ScreenTools.dp2px(context, 186)) {
-                    layout(getLeft(), ScreenTools.dp2px(context, 41), getRight(), ScreenTools.dp2px(context, 186));
+                    layout(getLeft(), 0, getRight(), RightBottomMin);
+                } else if (getBottom() + offsetY >= RightBottomMax) {
+                    layout(getLeft(), leftTopMax, getRight(), RightBottomMax);
                 } else {
-                    layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
+                    int leftTopCurrent = getTop() + offsetY;
+                    double currentChangeRate = (double) leftTopCurrent / (double) leftTopMax;
+                    double currentChangeLengthY = currentChangeRate * yChangeTotalLength;
+                    double currentLengthY = currentChangeLengthY + yLengthMix;
+                    double rightBottomcurrent = currentLengthY + leftTopCurrent;
+                    layout(getLeft(), getTop() + offsetY, getRight(), (int) rightBottomcurrent);
                 }
                 break;
         }
