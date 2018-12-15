@@ -31,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
-                android:src="@drawable/main_loan_background" />
+                android:src="@drawable/main_audit_type_background" />
 
         </com.nujnay.slidcard.TestView>
 
@@ -48,7 +48,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
-                android:src="@drawable/main_loan_background" />
+                android:src="@drawable/main_audit_type_background" />
 
         </com.nujnay.slidcard.TestView>
     </android.support.design.widget.CoordinatorLayout>
